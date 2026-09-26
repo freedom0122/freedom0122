@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>生日快乐 · 25 像素派对</title>
+<title>老婆25岁生日快乐🎂</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%231a1430' /><path d='M3 11h10v2H3z' fill='%23ffd93d' /><rect x='4' y='6' width='3' height='5' fill='%23ff6fc8' /><rect x='9' y='5' width='3' height='6' fill='%233ee3ff' /><rect x='6.5' y='4' width='3' height='3' fill='%23ff5c6e' /></svg>">
 <link rel="preconnect" href="https://miaoda.feishu.cn">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Press+Start+2P&family=ZCOOL+KuaiLe:wght@400&display=swap">
@@ -115,16 +115,41 @@
 
   /* ========== 3. 传真机 / 信纸 ========== */
   #screen-fax{justify-content:flex-start;padding:0;background:var(--bg);}
-  .paper{position:relative;z-index:2;margin-top:7vh;width:84%;max-width:360px;background:#efe9ff;color:#2b2344;
-    border:4px solid #000;border-radius:8px;box-shadow:0 0 0 3px var(--panel),0 12px 0 rgba(0,0,0,.4);padding:20px 22px 30px;min-height:150px;}
-  .paper::before{content:"";position:absolute;left:0;top:0;bottom:0;width:34px;background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(120,100,180,.35) 2px 4px);opacity:.5;}
-  .paper-lines{position:absolute;inset:0;padding:18px 22px 26px 46px;background:
-    repeating-linear-gradient(0deg, transparent 0 26px, rgba(120,100,180,.22) 26px 27px);}
-  .type-wrap{position:relative;height:104px;overflow:hidden;}
-  .type-line{font-size:22px;line-height:1.9;letter-spacing:2px;font-family:'ZCOOL KuaiLe',sans-serif;}
-  .type-cursor{display:inline-block;width:9px;height:20px;background:var(--red);vertical-align:-2px;animation:blink .8s steps(2) infinite;}
-  .paper-head{font-size:12px;color:#8a7fb5;letter-spacing:3px;text-align:right;}
-  .fax-stage{position:absolute;left:50%;transform:translateX(-50%);bottom:5vh;z-index:2;width:80%;max-width:330px;}
+  .paper{
+    position:relative;z-index:2;
+    margin-top:2vh;
+    width:94%;
+    max-width:440px;
+    background:#efe9ff;
+    color:#2b2344;
+    border:4px solid #000;
+    border-radius:8px;
+    box-shadow:0 0 0 3px var(--panel),0 12px 0 rgba(0,0,0,.4);
+    padding:20px 22px 26px;
+    min-height:360px;
+  }
+  .paper::before{
+    content:"";
+    position:absolute;left:0;top:0;bottom:0;width:32px;
+    background:repeating-linear-gradient(0deg, transparent 0 2px, rgba(120,100,180,.35) 2px 4px);
+    opacity:.5;
+  }
+  .paper-lines{
+    position:absolute;inset:0;
+    padding:18px 22px 22px 44px;
+    background:repeating-linear-gradient(0deg, transparent 0 24px, rgba(120,100,180,.22) 24px 25px);
+  }
+  .type-wrap{position:relative;height:310px;overflow:hidden;}
+  .type-line{font-size:16px;line-height:1.8;letter-spacing:1px;font-family:'ZCOOL KuaiLe',sans-serif;}
+  .type-cursor{display:inline-block;width:7px;height:18px;background:var(--red);vertical-align:-2px;animation:blink .8s steps(2) infinite;}
+  .paper-head{font-size:11px;color:#8a7fb5;letter-spacing:2px;text-align:right;}
+  .fax-stage{
+    position:absolute;left:50%;transform:translateX(-50%);
+    bottom:1vh;
+    z-index:2;
+    width:48%;
+    max-width:170px;
+  }
   .fax-img{width:100%;border-radius:18px;border:3px solid #000;box-shadow:0 0 0 3px var(--panel),0 12px 0 rgba(0,0,0,.4);filter:saturate(.75);}
 
   /* ========== 4. 礼物页 ========== */
@@ -449,18 +474,19 @@ function startCountdown(){
 /* ========== 3. 传真打字 ========== */
 function gotoFax(){
   show('screen-fax');
-  var line=$('#typeLine'), text='生日快乐，愿你岁岁平安';
+  var line=$('#typeLine'), text='老婆25岁生日快乐呀！！一直内疚去年忘记了老婆生日，现在终于有机会补偿了QAQ 因为想有新意，所以尝试制作了一个小网站，第一次做有些生疏，请老婆见谅～\n和老婆认识已经四年多了，这四年多的时间里，我们每天醒来第一件事和睡前最后一件事都是想着对方，我想这也是很浪漫的事吧🤍在这个美好的日子里，祝愿漂亮鲜活勇敢的花花老婆，朝朝如愿、岁岁平安，度过无怨无悔的万千时光✨';
   var i=0;
   function type(){
     line.textContent=text.slice(0,i+1);
     i++;
     if(i%3===0) sfx('tick');
-    if(i<text.length){ setTimeout(type, reducedMotion? 5:120); }
+    if(i<text.length){ setTimeout(type, reducedMotion? 5:80); }
     else {
       $('#typeCursor').classList.add('hidden');
+      //打字完成后停留3秒再弹出对话框
       setTimeout(function(){
         var d=$('#giftDialog'); d.classList.add('show'); sfx('note');
-      }, 500);
+      },3000);
     }
   }
   setTimeout(type, 600);
